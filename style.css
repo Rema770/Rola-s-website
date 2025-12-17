@@ -1,0 +1,203 @@
+:root {
+    --bg-color: #fffafb;
+    --text-color: #2d2d2d;
+    --accent-primary: #ffb3c1;
+    --accent-secondary: #fb6f92;
+    --card-bg: #ffffff;
+    --glass-nav: rgba(255, 255, 255, 0.85);
+}
+/* تأكد أن أيقونة الزر تتغير ألوانها بوضوح */
+.theme-switch i {
+    font-size: 1.5rem;
+    transition: transform 0.4s ease;
+}
+
+.theme-switch:hover i {
+    transform: rotate(30deg);
+}
+[data-theme="dark"] {
+    --bg-color: #121212;
+    --text-color: #fdfdfd;
+    --accent-primary: #fb6f92;
+    --accent-secondary: #ffb3c1;
+    --card-bg: #1e1e1e;
+    --glass-nav: rgba(18, 18, 18, 0.85);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    transition: background 0.4s ease, color 0.4s ease;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    overflow-x: hidden;
+}
+
+/* Theme Toggle */
+.theme-switch {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: var(--accent-secondary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* Navigation */
+header {
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--glass-nav);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.logo span { color: var(--accent-secondary); }
+
+nav ul { display: flex; list-style: none; align-items: center; }
+nav ul li { margin-left: 30px; }
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.nav-btn {
+    background: var(--accent-secondary);
+    color: white !important;
+    padding: 10px 20px;
+    border-radius: 30px;
+}
+
+/* Hero Section */
+.hero {
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    background: linear-gradient(to right, var(--bg-color), transparent), 
+                url('https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    line-height: 1.1;
+    margin: 15px 0;
+}
+
+.subtitle {
+    color: var(--accent-secondary);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 13px;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 15px 40px;
+    background: var(--text-color);
+    color: var(--bg-color);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+/* Moving Bar */
+.moving-bar {
+    background: var(--accent-secondary);
+    padding: 20px 0;
+    overflow: hidden;
+}
+
+.scrolling-text {
+    display: inline-block;
+    white-space: nowrap;
+    animation: scroll 30s linear infinite;
+}
+
+.scrolling-text span {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding-right: 50px;
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Gallery */
+.gallery-section { padding: 100px 8%; }
+.section-title {
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 50px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item {
+    height: 400px;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.gallery-item:hover img { transform: scale(1.1); }
+
+/* Footer */
+footer {
+    padding: 60px 0;
+    text-align: center;
+    background: var(--card-bg);
+}
+
+.socials { margin: 20px 0; }
+.socials a {
+    font-size: 24px;
+    margin: 0 15px;
+    color: var(--accent-secondary);
+}
